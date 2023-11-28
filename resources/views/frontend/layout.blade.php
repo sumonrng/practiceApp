@@ -446,7 +446,7 @@
 <img src="{{ asset('frontend/images/coin/05.png')}}" class="img-fluid" alt="#">
 </span>
                         <span class="coin-06 animateme" data-when="span" data-from="0.9" data-to="0.1" data-translatex="0" data-translatey="-100" data-rotatez="180">
-<img src="images/coin/06.png" class="img-fluid" alt="#">
+<img src="{{ asset('frontend/images/coin/06.png')}}" class="img-fluid" alt="#">
 </span>
                     </div>
                 </div>
@@ -783,7 +783,7 @@ Footer -->
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12 iq-mtb-90">
                         <div class="logo">
-                            <img id="logo_img_2" class="img-fluid" src="images/logo-white.png" alt="# ">
+                            <img id="logo_img_2" class="img-fluid" src="{{asset('frontend/images/logo-white.png')}}" alt="# ">
                             <div class="text-white iq-mt-25 ">With coinex, you can buy, sell, trade, and earn cryptocurrencies and manage your Transaction most efficiently and securely.</div>
                             <ul class="iq-media-blog iq-mt-30 float-start">
                                 <li><a href="javascript:void(0)" class="rounded" ><i class="fa fa-twitter"></i></a></li>

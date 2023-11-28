@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Balance;
 use App\Models\Member;
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Nette\Utils\Random;
@@ -29,13 +31,14 @@ class MemberController extends Controller
             'user_id'=>'required|unique:members,user',
             'password'=>'required|confirmed|min:6',
             'password_confirmation'=>'required_with:password|same:password|min:6',
-            'refer_id'=>'required|exists:members,user'
+            //'refer_id'=>'required|exists:members,user'
         ],[
             'password.required'=>'Password in Empty'
         ]);
 
         $pass = md5($request->password);
         $log_user = rand(9999,1000);
+        // Member::insertId([]);
         $model = new Member;
         $model->sponsor = $request->refer_id;
         $model->user = $request->user_id;
@@ -50,6 +53,12 @@ class MemberController extends Controller
         $model->matching='0';
         $model->active = 1;
         $model->save();
+        $profile = new Profile;
+        $profile->name = $request->funllname;
+        $profile->email = $request->email;
+        $profile->save();
+        $balance = new Balance;
+        $balance->save();
         $msg = "Member Inserted";
         $request->session()->flash('message',$msg);
         return redirect('index');

@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 Route::get('index',[MemberController::class,'index']);
 Route::post('ragistration',[MemberController::class,'create'])->name('index.ragistration');
+Route::post('ragistration',[MemberController::class,'create'])->name('index.ragistration');
